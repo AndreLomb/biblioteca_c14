@@ -1,0 +1,20 @@
+#Java
+*.class
+target/
+
+#Intellij
+.idea/
+*.iml
+out/
+
+#VSCode
+.vscode/
+
+#logs e temporários
+*.log
+logs/
+*.tmp
+
+#Sistema
+.DS_Store
+Thumbs.db
