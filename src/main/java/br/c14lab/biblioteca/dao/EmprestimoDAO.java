@@ -1,7 +1,6 @@
 package br.c14lab.biblioteca.dao;
 
 import br.c14lab.biblioteca.model.Emprestimo;
-import br.c14lab.biblioteca.model.Usuario;
 
 import java.util.List;
 

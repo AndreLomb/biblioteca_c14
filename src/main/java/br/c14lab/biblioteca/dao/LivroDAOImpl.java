@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LivroDAOImpl implements LivroDAO{
-    private Map<String, Livro> livros = new HashMap<>();
+    private final Map<String, Livro> livros = new HashMap<>();
 
     @Override
     public void adicionarLivro(Livro livro){
