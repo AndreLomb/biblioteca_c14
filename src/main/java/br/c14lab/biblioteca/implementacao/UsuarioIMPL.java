@@ -15,6 +15,12 @@ public class UsuarioIMPL implements UsuarioRegras {
     //-------------------------------------------------------------------------------------------------
 
 
+    //CRITÉRIOS PARA TESTES
+    /* JUnit 5.9.2 - veja o jeito de lançar exceções em testes da versão!!
+     * Creio não termos necessidade de nenhum mock, já que nossas classes são POJO
+     *
+     * -- André
+     * */
 
     //Métodos ------------------------------------------------------------------------------------
     @Override
@@ -40,7 +46,7 @@ public class UsuarioIMPL implements UsuarioRegras {
         //TODO USUARIO NãO ENCONTRADO EXCEPTION
     }
 
-
+    /*UTTILIZAR @Before OU Ñ, CEIS QUE SABEM*/
 
     @Override
     public void mostrarTodosUsuarios() {
@@ -52,7 +58,12 @@ public class UsuarioIMPL implements UsuarioRegras {
     }
 
 
-
+    /*  _testAtualizarUsuario_
+    *
+    * Ver se todas as seções dos métodos estão em ordem,
+    * provavelmente terá de usar mais de uma assertion
+    * -- André
+    * */
     @Override
     public void atualizarUsuario(Usuario usuario) {
         int atualizar;
@@ -108,7 +119,11 @@ public class UsuarioIMPL implements UsuarioRegras {
     }
 
 
-
+    /*  testeUsuarioNaoEncontradoException;
+    *
+    * testar o lançamento da exceção, assim como a remoção normal
+    * -- André
+    * */
     @Override
     public void removerUsuario(String id) {
         Usuario usuarioParaRemover = null;
@@ -137,7 +152,9 @@ public class UsuarioIMPL implements UsuarioRegras {
     }
 
 
-
+    /*  testeUsuarioNaoEncontradoException
+    *
+    * tembém testar o lançamento de exceção, e a busca do usuário*/
     @Override
     public Usuario buscarPorNome(String nome) {
         for(Usuario u : usuarios )
