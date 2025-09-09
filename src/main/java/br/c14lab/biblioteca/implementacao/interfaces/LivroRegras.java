@@ -1,10 +1,10 @@
-package br.c14lab.biblioteca.dao;
+package br.c14lab.biblioteca.implementacao.interfaces;
 
 import br.c14lab.biblioteca.model.Livro;
 
 import java.util.List;
 
-public interface LivroDAO {
+public interface LivroRegras {
     void adicionarLivro(Livro livro);
     Livro buscarPorIsbn(String isbn);
     List<Livro> buscarTodosOsLivros();
