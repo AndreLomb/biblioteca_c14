@@ -15,12 +15,6 @@ public class LivroIMPL implements LivroRegras {
     private final Map<String, Livro> livros = new HashMap<>();
     //-------------------------------------------------------------------------------------------------
 
-    //CRITÉRIOS PARA TESTES
-    /* JUnit 5.9.2 - veja o jeito de lançar exceções em testes da versão!!
-    * Creio não termos necessidade de nenhum mock, já que nossas classes são POJO
-    *
-    * -- André
-    * */
 
     //Métodos ------------------------------------------------------------------------------------
     @Override
@@ -43,9 +37,6 @@ public class LivroIMPL implements LivroRegras {
     }
 
 
-    /*testLivroNaoEncontradoException
-    *
-    * testar o lançamento da exceção e a atualização do livro*/
     @Override
     public void atualizarLivro(Livro livroAtualizado) {
         String isbn = livroAtualizado.getIsbn();

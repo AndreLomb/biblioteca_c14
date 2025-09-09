@@ -1,5 +1,7 @@
 package br.c14lab.biblioteca.implementacao;
 
+import br.c14lab.biblioteca.exceptions.LivroNaoEncontradoException;
+import br.c14lab.biblioteca.exceptions.UsuarioNaoEncontradoException;
 import br.c14lab.biblioteca.implementacao.interfaces.UsuarioRegras;
 import br.c14lab.biblioteca.model.Usuario;
 
@@ -15,13 +17,6 @@ public class UsuarioIMPL implements UsuarioRegras {
     //-------------------------------------------------------------------------------------------------
 
 
-    //CRITÉRIOS PARA TESTES
-    /* JUnit 5.9.2 - veja o jeito de lançar exceções em testes da versão!!
-     * Creio não termos necessidade de nenhum mock, já que nossas classes são POJO
-     *
-     * -- André
-     * */
-
     //Métodos ------------------------------------------------------------------------------------
     @Override
     public void adicionarUsuario(Usuario usuario) {
@@ -32,21 +27,13 @@ public class UsuarioIMPL implements UsuarioRegras {
 
     @Override
     public Usuario buscarPorId(String id) {
-        for(Usuario u : usuarios )
-        {
-            if(u.getId().equals(id))
-            {
+        for (Usuario u : usuarios) {
+            if (id != null && id.equals(u.getId())) {
                 return u;
             }
         }
-        System.out.println("[Usuário não encontrado!]");
-        System.out.println("-------------------------");
-
-        return null;
-        //TODO USUARIO NãO ENCONTRADO EXCEPTION
+        throw new UsuarioNaoEncontradoException("Usuário não encontrado!");
     }
-
-    /*UTTILIZAR @Before OU Ñ, CEIS QUE SABEM*/
 
     @Override
     public void mostrarTodosUsuarios() {
@@ -58,12 +45,6 @@ public class UsuarioIMPL implements UsuarioRegras {
     }
 
 
-    /*  _testAtualizarUsuario_
-    *
-    * Ver se todas as seções dos métodos estão em ordem,
-    * provavelmente terá de usar mais de uma assertion
-    * -- André
-    * */
     @Override
     public void atualizarUsuario(Usuario usuario) {
         int atualizar;
@@ -119,18 +100,13 @@ public class UsuarioIMPL implements UsuarioRegras {
     }
 
 
-    /*  testeUsuarioNaoEncontradoException;
-    *
-    * testar o lançamento da exceção, assim como a remoção normal
-    * -- André
-    * */
     @Override
     public void removerUsuario(String id) {
         Usuario usuarioParaRemover = null;
 
         for(Usuario u : usuarios )
         {
-            if(u.getId().equals(id))
+            if(id != null && id.equals(u.getId()))
             {
                 usuarioParaRemover = u;
                 break;
@@ -145,9 +121,7 @@ public class UsuarioIMPL implements UsuarioRegras {
         }
         else
         {
-            System.out.println("[Usuário não encontrado!]");
-            System.out.println("-------------------------");
-            //TODO USUARIO NãO ENCONTRADO EXCEPTION
+            throw new UsuarioNaoEncontradoException("Usuário não encontrado para remoção!");
         }
     }
 
@@ -159,16 +133,11 @@ public class UsuarioIMPL implements UsuarioRegras {
     public Usuario buscarPorNome(String nome) {
         for(Usuario u : usuarios )
         {
-            if(u.getNome().equals(nome))
-            {
+            if(nome != null && nome.equals(u.getNome())) {
                 return u;
             }
         }
-        System.out.println("[Usuário não encontrado!]");
-        System.out.println("-------------------------");
-
-        return null;
-        //TODO USUARIO NãO ENCONTRADO EXCEPTION
+        throw new UsuarioNaoEncontradoException("Usuario com nome '" + nome + "'não encontrado.");
     }
     //-------------------------------------------------------------------------------------------------
 
