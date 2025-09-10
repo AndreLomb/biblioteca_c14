@@ -95,20 +95,6 @@ src/br/c14lab/biblioteca/
 - 🔧 **Maven para gerenciamento de dependências e build do projeto**
 ---
 
-## 📌 Como Executar
-
-### 🔹 IntelliJ IDEA
-1. `File → New → Project from Version Control`
-2. Cole a URL do repositório
-3. Aguarde o Maven baixar as dependências
-
-### 🔹 VS Code
-1. Clone o repositório
-2. Abra a pasta no VS Code
-3. Instale as extensões **Java** e **Maven**
-
----
-
 ## ✅ Status do Projeto
 
 - ✔️ Sistema de **usuários** implementado
